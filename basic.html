@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Website</title>
+    <link type="text/css" rel="stylesheet" href="//sachinchoolur.github.io/lightslider/dist/css/lightslider.css" />
+    <script src="//sachinchoolur.github.io/lightslider/dist/js/lightslider.js"></script>
+    <link rel="stylesheet" href="styles.css"> <!-- Create a separate CSS file for better organization -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>Blooket1</h1>
+        </div>
+    </header>
+    <nav>
+        <div class="container">
+            <a href="#">Games</a>
+            <a href="#">Tools</a>
+            <a href="#">Movies</a>
+            
+            <div class="search-container">
+                <input class="search expandright" id="searchright" type="search" name="q" placeholder="Search">
+                <label class="searchbutton" for="searchright"><span class="mglass">&#9906;</span></label>
+            </div>
+        </div>
+    </nav>
+
+    <section class="main-content">
+        <div class="container">
+            <!-- Add your content here, such as game/movie thumbnails, descriptions, etc. -->
+        </div>
+    </section>
+
+    <aside class="sidebar">
+        <div class="container">
+            <div class="icons">
+                <div class="icon"><i class="fas fa-cog"></i></div>
+                <div class="icon"><i class="fas fa-comments"></i></div>
+                <div class="icon"><i class="fas fa-info-circle"></i></div>
+            </div>
+        </div>
+    </aside>
+
+    <section>
+        <h2>Popular Games</h2>
+        <div class="carousel-container">
+            <ul id="popular" class="light-slider">
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>                        
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Action Games</h2>
+        <div class="carousel-container">
+            <ul id="action" class="light-slider">
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>  
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Racing Games</h2>
+        <div class="carousel-container">
+            <ul id="racing" class="light-slider">
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>  
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Shooting Games</h2>
+        <div class="carousel-container">
+            <ul id="shooting" class="light-slider">
+               <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>   
+            </ul>
+        </div>
+    </section> 
+
+    <section>
+        <h2>Puzzle Games</h2>
+        <div class="carousel-container">
+            <ul id="puzzle" class="light-slider">
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>  
+            </ul>
+        </div>
+    </section> 
+
+    <section>
+        <h2>Survival Games</h2>
+        <div class="carousel-container">
+            <ul id="survival" class="light-slider">
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>  
+            </ul>
+        </div>
+    </section> 
+
+    <section>
+        <h2>Rolplaying Games</h2>
+        <div class="carousel-container">
+            <ul id="roleplaying" class="light-slider">
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>  
+            </ul>
+        </div>
+    </section> 
+
+    <section>
+        <h2>Arcade Games</h2>
+        <div class="carousel-container">
+            <ul id="arcade" class="light-slider">
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>
+                <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                    <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                </li>  
+            </ul>
+        </div>
+    </section> 
+<br><br><br><br><br>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Your Website Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+            $("#popular").lightSlider({
+                item: 5,
+                loop: true,
+                thumbItem: 9
+            });
+            
+            $("#action").lightSlider({
+                item: 5,
+                loop: true,
+                thumbItem: 9
+            });
+             
+            $("#racing").lightSlider({
+                item: 5,
+                loop: true,
+                thumbItem: 9
+            });
+
+            $("#shooting").lightSlider({
+                item: 5,
+                loop: true,
+                thumbItem: 9
+            });
+
+            $("#puzzle").lightSlider({
+                item: 5,
+                loop: true,
+                thumbItem: 9
+            });
+
+            $("#survival").lightSlider({
+                item: 5,
+                loop: true,
+                thumbItem: 9
+            });
+
+            $("#roleplaying").lightSlider({
+                item: 5,
+                loop: true,
+                thumbItem: 9
+            });
+
+            $("#arcade").lightSlider({
+                item: 5,
+                loop: true,
+                thumbItem: 9
+            });
+        });
+    </script>
+</body>
+
+</html>
