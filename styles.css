@@ -6,9 +6,32 @@ body {
     color: #fff;
 }
 
+logo {
+    line-height: 1;
+}
+
+.logo {
+    height: 30px;
+    width: 30px;
+    margin: 20px;
+    margin-right: 5px;
+}
+
+.logo-name {
+    display: inline;
+    position: absolute;
+    margin: 19px;
+    margin-left: 0;
+}
+
+.options {
+    position: absolute;
+    margin-left: 200px;
+}
+
 .container {
     max-width: 1200px;
-    margin: 0 auto;
+    display: inline;
 }
 
 header, nav, footer {
@@ -29,9 +52,14 @@ header h1, nav a, footer p {
 }
 
 nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Adjust as needed */
     position: sticky;
+    opacity: 0.9;
     top: 0;
     z-index: 101;
+    padding: 0;
 }
 
 nav a {
@@ -91,7 +119,7 @@ nav a {
 }
 
 section {
-    padding: 20px;
+    padding: 0 20px 0 20px;
 }
 
 .carousel-container {
@@ -129,10 +157,7 @@ img {
 .mglass {
 	display: inline-block;
 	pointer-events: none;
-	-webkit-transform: rotate(-45deg);
-	-moz-transform: rotate(-45deg);
-	-o-transform: rotate(-45deg);
-	-ms-transform: rotate(-45deg);
+	rotate: -45deg;
 }
 
 .search-container {
@@ -153,24 +178,20 @@ img {
 }
 
 .search {
-    background-color: white;
+    background-color: #3a3a3a;
+    color: white;
     outline: none;
     border: none;
     padding: 10px; /* Adjust the padding to make the input bigger */
-    width: 0;
     height: 100%;
     transition-duration: 0.4s;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-duration: 0.4s;
-    -o-transition-duration: 0.4s;
-    display: none;
+    opacity: 0;
+    overflow: hidden;
+    margin-right: 10px;
+    width: 0;
 }
 
-.search:focus {
-    width: 200px; /* Adjust the width as needed */
-    padding: 10px;
-}
-
-.expandright {
-	display: block;
+.search.active {
+    width: 400px; /* Adjust the width of the input when it's active */
+    opacity: 1;
 }
