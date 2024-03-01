@@ -145,223 +145,211 @@
     },
     "raft wars": {
         "name": "raft wars",
-        "image": "/images/",
+        "image": "/images/raftwars.png",
         "onclick": "/play/raft wars",
         "categories": ""
     },
     "star wars": {
         "name": "star wars",
-        "image": "/images/",
+        "image": "/images/starwars.png",
         "onclick": "/play/star wars",
         "categories": ""
     },
     "zork": {
         "name": "zork",
-        "image": "/images/",
+        "image": "/images/zork.png",
         "onclick": "/play/zork",
         "categories": ""
     },
     "happy wheels": {
         "name": "happy wheels",
-        "image": "/images/",
+        "image": "/images/happywheels.jpg",
         "onclick": "/play/happy wheels",
         "categories": ""
     },
     "alien hominid": {
         "name": "alien hominid",
-        "image": "/images/",
+        "image": "/images/alienhominid.jpg",
         "onclick": "/play/alien hominid",
         "categories": ""
     },
     "bloons tower defence 3": {
         "name": "bloons tower defence 3",
-        "image": "/images/",
+        "image": "/images/btd3.jpg",
         "onclick": "/play/bloons td 3",
         "categories": ""
     },
     "canabalt": {
         "name": "canabalt",
-        "image": "/images/",
+        "image": "/images/canabalt.jpg",
         "onclick": "/play/canabalt",
         "categories": ""
     },
     "fireboy and watergirl": {
         "name": "fireboy and watergirl",
-        "image": "/images/",
+        "image": "/images/fireboyandwatergirl.jpg",
         "onclick": "/play/fireboy and watergirl",
         "categories": ""
     },
     "tunnel glider": {
         "name": "tunnel glider",
-        "image": "/images/",
+        "image": "/images/tunnelglider.jpg",
         "onclick": "/play/tunnel glider",
         "categories": ""
     },
     "cookie clicker": {
         "name": "cookie clicker",
-        "image": "/images/",
+        "image": "/images/cookieclicker.jpg",
         "onclick": "/play/cookie clicker",
         "categories": ""
     },
     "html editor": {
         "name": "html editor",
-        "image": "/images/",
+        "image": "/images/htmleditor",
         "onclick": "/play/html editor",
         "categories": ""
     },
     "crossy road": {
         "name": "crossy road",
-        "image": "/images/",
+        "image": "/images/crossyroad.jpg",
         "onclick": "/play/crossy road",
         "categories": ""
     },
     "geometry dash": {
         "name": "geometry dash",
-        "image": "/images/",
+        "image": "/images/geodash.jpg",
         "onclick": "/play/geometry dash",
         "categories": ""
     },
     "stick jet challenge": {
         "name": "stick jet challenge",
-        "image": "/images/",
+        "image": "/images/stickjetchallenge.jpg",
         "onclick": "/play/stick jet challenge",
         "categories": ""
     },
     "pixel battle royale": {
         "name": "pixel battle royale",
-        "image": "/images/",
+        "image": "/images/pixelbattleroyale.jpg",
         "onclick": "/play/pixel battle royale/",
         "categories": ""
     },
     "war brokers": {
         "name": "war brokers",
-        "image": "/images/",
+        "image": "/images/warbrokers.jpg",
         "onclick": "/play/war brokers",
         "categories": ""
     },
     "python editor": {
         "name": "python editor",
-        "image": "/images/",
+        "image": "/images/pythoneditor.jpg",
         "onclick": "/play/python editor",
         "categories": ""
     },
     "cut the rope": {
         "name": "cut the rope",
-        "image": "/images/",
+        "image": "/images/cuttherope.png",
         "onclick": "/play/cut the rope",
         "categories": ""
     },
     "github repo viewer": {
         "name": "github repo viewer",
-        "image": "/images/",
+        "image": "/images/githubrepoeditor.png",
         "onclick": "/play/github repo editor",
         "categories": ""
     },
     "sparx helper": {
         "name": "sparx helper",
-        "image": "/images/",
+        "image": "/images/sparx.jpg",
         "onclick": "/play/sparx",
         "categories": ""
     },
     "ask the stars": {
         "name": "ask the stars",
-        "image": "/images/",
+        "image": "/images/askthestars.jpg",
         "onclick": "/play/ask the stars",
         "categories": ""
     },
     "subway surfers": {
         "name": "subway surfers",
-        "image": "/images/",
+        "image": "/images/subwaysurfers.jpg",
         "onclick": "/play/subway surfers",
         "categories": ""
     },
-    "car racing": {
+    "traffic racer": {
         "name": "car racing",
-        "image": "/images/",
-        "onclick": "/play/car racing",
+        "image": "/images/trafficracer",
+        "onclick": "/play/traffic racer",
         "categories": ""
     },
     "dino game": {
         "name": "dino game",
-        "image": "/images/",
+        "image": "/images/dinogame.webp",
         "onclick": "/play/dino game",
         "categories": ""
     },
     "hard mario": {
         "name": "hard mario",
-        "image": "/images/",
+        "image": "/images/mario.png",
         "onclick": "/play/hard mario",
-        "categories": ""
-    },
-    "fidget spinner": {
-        "name": "fidget spinner",
-        "image": "/images/",
-        "onclick": "/play/fidget spinner",
         "categories": ""
     },
     "flappy bird": {
         "name": "flappy bird",
-        "image": "/images/",
+        "image": "/images/flappybird.png",
         "onclick": "/play/flappy bird",
         "categories": ""
     },
     "solitare": {
         "name": "solitare",
-        "image": "/images/",
+        "image": "/images/solitare.jpg",
         "onclick": "/play/solitare",
         "categories": ""
     },
     "mem tile": {
         "name": "mem tile",
-        "image": "/images/",
+        "image": "/images/memtile.jpg",
         "onclick": "/play/mem tile",
         "categories": ""
     },
     "mine sweeper": {
         "name": "mine sweeper",
-        "image": "/images/",
+        "image": "/images/minesweeper.jpg",
         "onclick": "/play/mine sweeper",
         "categories": ""
     },
     "pac-man": {
         "name": "pac-man",
-        "image": "/images/",
+        "image": "/images/pacman.png",
         "onclick": "/play/pac-man",
         "categories": ""
     },
     "pin ball": {
         "name": "pin ball",
-        "image": "/images/",
+        "image": "/images/pinball.png",
         "onclick": "/play/pin ball",
         "categories": ""
     },
     "pong": {
         "name": "pong",
-        "image": "/images/",
+        "image": "/images/pong.jpg",
         "onclick": "/play/pong",
-        "categories": ""
-    },
-    "robot man": {
-        "name": "robot man",
-        "image": "/images/",
-        "onclick": "/play/robot man",
         "categories": ""
     },
     "spider solitare": {
         "name": "spider solitare",
-        "image": "/images/",
+        "image": "/images/spidersolitare.webp",
         "onclick": "/play/spider solitare",
         "categories": ""
     },
     "tetris": {
         "name": "tetris",
-        "image": "/images/",
+        "image": "/images/tetris.jpg",
         "onclick": "/play/tetris",
         "categories": ""
     },
     "tower building": {
         "name": "tower building",
-        "image": "/images/",
+        "image": "/images/towerbuilding.jpg",
         "onclick": "/play/tower building",
         "categories": ""
     }
