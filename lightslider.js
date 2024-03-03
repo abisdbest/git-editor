@@ -8,48 +8,56 @@ $(document).ready(function() {
     $("#popular").lightSlider({
         item: 5,
         loop: true,
+        rtl: false,
         thumbItem: 9
     });
     
     $("#action").lightSlider({
         item: 5,
         loop: true,
+        rtl: true,
         thumbItem: 9
     });
      
     $("#racing").lightSlider({
         item: 5,
         loop: true,
+        rtl: false,
         thumbItem: 9
     });
 
     $("#shooting").lightSlider({
         item: 5,
         loop: true,
+        rtl: true,
         thumbItem: 9
     });
 
     $("#puzzle").lightSlider({
         item: 5,
         loop: true,
+        rtl: false,
         thumbItem: 9
     });
 
     $("#survival").lightSlider({
         item: 5,
         loop: true,
+        rtl: true,
         thumbItem: 9
     });
 
     $("#roleplaying").lightSlider({
         item: 5,
         loop: true,
+        rtl: false,
         thumbItem: 9
     });
 
     $("#arcade").lightSlider({
         item: 5,
         loop: true,
+        rtl: true,
         thumbItem: 9
     });
 });
@@ -70,9 +78,9 @@ $(document).ready(function() {
         cssEasing: 'ease', //'cubic-bezier(0.25, 0, 0.25, 1)',
         easing: 'linear', //'for jquery animation',//
         speed: 400, //ms'
-        auto: false,
-        pauseOnHover: false,
-        loop: false,
+        auto: true,
+        pauseOnHover: true,
+        loop: true,
         slideEndAnimation: true,
         pause: 2000,
         keyPress: false,
