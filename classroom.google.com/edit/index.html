@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+    <script>eruda.init();</script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-css@3.9.0/">
+    <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.31.1/min/vs/loader.js"></script>
+    <script src="https://abisdbest.github.io/newgamewebsite/source/github%20repo%20editor/edit/emmet.js"></script>
+    <style>
+        #editor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 100vh;
+            width: 100%;
+        }
+
+        button {
+            position: fixed;
+            z-index: 9999999999;
+            right: 10px;
+            top: 30px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- <textarea id="newContent" rows="10" cols="50"></textarea><br> -->
+    <div id="editor"></div>
+    <button onclick="editFile()">commit changes</button>
+
+    <script>
+        let file, repo, currentContent, startValue; // Declare file and repo in the global scope
+
+        async function get_old_value() {
+            const response = await fetch("https://raw.githubusercontent.com/" + username + "/" + repo + "/master/" + file + "#classroom.google.com", {
+                cache: "no-cache"
+            });
+            startValue = await response.text();
+            initMonacoEditor(); // Call initMonacoEditor() after startValue is retrieved
+        }
+
+        function getParams() {
+            const urlParams = new URLSearchParams(window.location.search);
+            repo = urlParams.get('repo')
+            file = urlParams.get('file')
+            return { file, repo };
+        }
+
+        async function start_stuff() {
+            const { file, repo } = getParams();
+            await get_old_value();
+            if (file && repo) {
+                // hi
+            } else {
+                alert("Invalid parameters. Please provide both file and repository name.");
+            }
+        }
+
+        // Check if username and token are already stored in local storage
+        let username = localStorage.getItem('github_username');
+        let token = localStorage.getItem('github_token');
+        
+        // If not stored, prompt for username and API token
+        if (!username || !token) {
+            username = prompt("Enter your GitHub username:");
+            token = prompt("Enter your GitHub API token:");
+            
+            // Save username and token in local storage
+            localStorage.setItem('github_username', username);
+            localStorage.setItem('github_token', token);
+        }
+
+        async function editFile() {
+            if (!isEditorReady || !editor) {
+                alert('Editor is not ready.');
+                return;
+            }
+
+            const newContent = editor.getValue();
+            if (!newContent.trim()) {
+                alert("Cannot commit empty content.");
+                return;
+            }
+            
+            const url = `https://api.github.com/repos/${username}/${repo}/contents/${file}#classroom.google.com`;
+
+            try {
+                const response = await fetch(url, {
+                    method: 'GET',
+                    headers: {
+                        Authorization: `token ${token}`,
+                    },
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Failed to fetch file: ' + response.status);
+                }
+
+                const data = await response.json();
+
+                const updatedContent = btoa(unescape(encodeURIComponent(newContent)));
+                const sha = data.sha;
+
+                const editUrl = `https://api.github.com/repos/${username}/${repo}/contents/${file}#classroom.google.com`;
+
+                const commit_msg = prompt("enter commit message: ")
+
+                const editResponse = await fetch(editUrl, {
+                    method: 'PUT',
+                    headers: {
+                        Authorization: `token ${token}`,
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        message: commit_msg,
+                        content: updatedContent,
+                        sha: sha,
+                    }),
+                });
+
+                if (editResponse.ok) {
+                    alert('File edited successfully!');
+                } else {
+                    throw new Error('Failed to edit file: ' + editResponse.status);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error: ' + error.message);
+            }
+        }
+
+
+        start_stuff()
+
+        let isEditorReady = false;
+        let editor;
+        
+        function initMonacoEditor() {
+            require.config({
+                paths: {
+                    'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.31.1/min/vs'
+                }
+            });
+            require(['vs/editor/editor.main'], function () {
+                emmetMonaco.emmetHTML(monaco);
+                editor = monaco.editor.create(document.getElementById('editor'), {
+                    value: startValue,
+                    language: 'html',
+                    theme: 'vs-dark',
+                    minimap: {
+                        enabled: false
+                    }
+                });
+
+                isEditorReady = true;
+            });
+        }
+    </script>
+</body>
+</html>

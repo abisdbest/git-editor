@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitHub Repository Files</title>
+</head>
+<body>
+  <h1>GitHub Repository Files</h1>
+  <div id="files"></div>
+
+  <script>
+    async function fetchRepositoryFiles(username, repo) {
+      try {
+        const response = await fetch(`https://api.github.com/repos/${username}/${repo}/contents#classroom.google.com`);
+        const files = await response.json();
+        return files;
+      } catch (error) {
+        console.error('Error fetching repository files:', error);
+        return [];
+      }
+    }
+
+    async function displayRepositoryFiles(username, repo) {
+      const filesContainer = document.getElementById('files');
+      filesContainer.innerHTML = ''; // Clear previous data
+
+      const files = await fetchRepositoryFiles(username, repo);
+
+      files.forEach(file => {
+        const fileElement = document.createElement('div');
+        fileElement.innerHTML = `
+          <p><strong>Name:</strong> ${file.name}</p>
+          <p><strong>directory or file:</strong> ${file.type}</p>
+          <p><strong>edit:</strong> <a href="../edit/?file=${file.name}&repo=${repo}" target="_blank">edit ${file.name}</a></p>
+          <hr>
+        `;
+        filesContainer.appendChild(fileElement);
+      });
+    }
+
+    function getParams() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const repo = urlParams.get('repo');
+      const username = urlParams.get('username');
+      return { username, repo };
+    }
+
+    function init() {
+      const { username, repo } = getParams();
+      if (username && repo) {
+        displayRepositoryFiles(username, repo);
+      } else {
+        alert("Invalid parameters. Please provide both username and repository name.");
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>
