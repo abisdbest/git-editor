@@ -81,7 +81,7 @@
 
         async function editFile() {
             if (!isEditorReady || !editor) {
-                alert('Editor is not ready.');
+                console.error('Editor is not ready.');
                 return;
             }
 
@@ -90,8 +90,8 @@
                 alert("Cannot commit empty content.");
                 return;
             }
-            
-            const url = `https://api.github.com/repos/${username}/${repo}/contents/${file}#classroom.google.com`;
+
+            const url = `https://api.github.com/repos/${username}/${repo}/contents/${file}`;
 
             try {
                 const response = await fetch(url, {
@@ -107,12 +107,13 @@
 
                 const data = await response.json();
 
-                const updatedContent = btoa(unescape(encodeURIComponent(newContent)));
                 const sha = data.sha;
 
-                const editUrl = `https://api.github.com/repos/${username}/${repo}/contents/${file}#classroom.google.com`;
+                const editUrl = `https://api.github.com/repos/${username}/${repo}/contents/${file}`;
 
-                const commit_msg = prompt("enter commit message: ")
+                const commit_msg = prompt("Enter commit message:");
+
+                const updatedContent = btoa(unescape(encodeURIComponent(newContent)));
 
                 const editResponse = await fetch(editUrl, {
                     method: 'PUT',
@@ -137,6 +138,7 @@
                 alert('Error: ' + error.message);
             }
         }
+
 
 
         start_stuff()
