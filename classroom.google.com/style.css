@@ -2,13 +2,14 @@
 
 /*** BEGIN OPTIONAL styling for box that contains the list ***/
 .menu-tree-container {
-    width:250px;
-    height:200px;
+    width: 250px;
+    height: 200px;
     overflow-y: scroll;
     border: 1px solid black;
     padding: 10px 10px;
-    position:relative;
+    position: relative;
 }
+
 /*** END OPTIONAL styling for box that contains the list ***/
 
 .menu-tree-preloader {
@@ -16,8 +17,9 @@
     top: 45%;
     position: absolute;
     left: 50%;
-    margin-left: -16px;	
-    display:none; /* Initially set this to not display unless JS is detected*/
+    margin-left: -16px;
+    display: none;
+    /* Initially set this to not display unless JS is detected*/
 }
 
 .menu-tree ul {
@@ -25,11 +27,12 @@
     margin: 0;
     padding: 0;
 }
+
 .menu-tree li li {
     /*background-image: url(page.png);
-    background-position: 0 1px;
-    background-repeat: no-repeat;*/
-    padding-left: 20px; 
+      background-position: 0 1px;
+      background-repeat: no-repeat;*/
+    padding-left: 20px;
 }
 
 .menu-tree a {
@@ -49,51 +52,65 @@
 }
 
 /*** BEGIN HTML ICON ***/
-.menu-tree a[data-content$=".html"], .menu-tree a[data-content^="http"] {  
+.menu-tree a[href$=".html"],
+.menu-tree a[href^="http"] {
     background: transparent url(http://labs.abeautifulsite.net/archived/jquery-fileTree/demo/images/html.png) no-repeat left top;
 }
+
 /*** END HTML ICON ***/
 
 /*** BEGIN PDF ICON ***/
 /* Add PDF icon before links that go to PDFs */
-.menu-tree a[data-content$=".pdf"] { 
+.menu-tree a[href$=".pdf"] {
     background: transparent url(http://www.adobe.com/images/pdficon_small.png) no-repeat left top;
 }
+
 /*** END PDF ICON ***/
 
 /*** BEGIN WORD ICON ***/
-.menu-tree a[data-content$=".doc"], .menu-tree a[data-content$=".docx"] { 
+.menu-tree a[href$=".doc"],
+.menu-tree a[href$=".docx"] {
     background: transparent url(http://labs.abeautifulsite.net/archived/jquery-fileTree/demo/images/file.png) no-repeat left top;
 }
+
 /*** END WORD ICON ***/
 
 /*** BEGIN PPT ICON ***/
-.menu-tree a[data-content$=".ppt"], .menu-tree a[data-content$=".pptx"] { 
+.menu-tree a[href$=".ppt"],
+.menu-tree a[href$=".pptx"] {
     background: transparent url(http://labs.abeautifulsite.net/archived/jquery-fileTree/demo/images/ppt.png) no-repeat left top;
 }
+
 /*** END PPT ICON ***/
 
 /*** BEGIN XLS ICON ***/
-.menu-tree a[data-content$=".xls"], .menu-tree a[data-content$=".xlsx"] { 
+.menu-tree a[href$=".xls"],
+.menu-tree a[href$=".xlsx"] {
     background: transparent url(http://labs.abeautifulsite.net/archived/jquery-fileTree/demo/images/xls.png) no-repeat left top;
 }
+
 /*** END XLS ICON ***/
 
 /*** BEGIN TEXT ICON ***/
-.menu-tree a[data-content$=".txt"] { 
+.menu-tree a[href$=".txt"] {
     background: transparent url(http://labs.abeautifulsite.net/archived/jquery-fileTree/demo/images/txt.png) no-repeat left top;
 }
+
 /*** END TEXT ICON ***/
 
 /*** BEGIN IMAGE ICON ***/
-.menu-tree a[data-content$=".jpg"], .menu-tree a[data-content$=".jpeg"], .menu-tree a[data-content$=".png"], .menu-tree a[data-content$=".gif"] { 
+.menu-tree a[href$=".jpg"],
+.menu-tree a[href$=".jpeg"],
+.menu-tree a[href$=".png"],
+.menu-tree a[href$=".gif"] {
     background: transparent url(http://labs.abeautifulsite.net/archived/jquery-fileTree/demo/images/picture.png) no-repeat left top;
 }
+
 /*** END IMAGE ICON ***/
 
 .menu-tree a:hover {
     text-decoration: underline;
-    background-color:#ccc;
+    background-color: #ccc;
 }
 
 /*** END FILE EXPLORER CODE ***/
