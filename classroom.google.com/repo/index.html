@@ -20,20 +20,15 @@ Note: Alternative is to use Modernizr to detect JS and appy "js" and "no-js" CSS
 <div class="menu-tree-preloader"><img src="../Iphone-spinner-2.gif"></div>
 <div class="menu-tree">
 <ul id="files">
-  <li>item 1
-    <ul>
-      <li>item 1.1
-        <ul>
-          <li><a href="https://www.medtronic.com">item 1.1.1 (https link)</a></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
+  <!-- Files will be dynamically added here -->
+</ul>
+</div>
+</div>
 
   <script>
-    async function fetchRepositoryFiles(username, repo) {
+    async function fetchRepositoryFiles(username, repo, path) {
       try {
-        const response = await fetch(`https://api.github.com/repos/${username}/${repo}/contents#classroom.google.com`);
+        const response = await fetch(`https://api.github.com/repos/${username}/${repo}/contents/${path}#classroom.google.com`);
         const files = await response.json();
         return files;
       } catch (error) {
@@ -42,20 +37,30 @@ Note: Alternative is to use Modernizr to detect JS and appy "js" and "no-js" CSS
       }
     }
 
-    async function displayRepositoryFiles(username, repo) {
+    async function displayRepositoryFiles(username, repo, path = '') {
       const filesContainer = document.getElementById('files');
       filesContainer.innerHTML = ''; // Clear previous data
 
-      const files = await fetchRepositoryFiles(username, repo);
+      const files = await fetchRepositoryFiles(username, repo, path);
 
       files.forEach(file => {
-        const fileElement = document.createElement('li');
-        fileElement.innerHTML = `
-        <p><strong>Name:</strong> ${file.name}</p>
-        <p><strong>directory or file:</strong> ${file.type}</p>
-        <p><strong>edit:</strong> <a href="../edit/?file=${file.name}&repo=${repo}" target="_blank">edit ${file.name}</a></p>
-      `;
-        filesContainer.appendChild(fileElement);
+        const itemElement = document.createElement('li');
+        if (file.type == "dir") {
+          itemElement.innerHTML = `${file.name}<ul></ul>`;
+          itemElement.addEventListener('click', async () => {
+            const nestedFiles = await fetchRepositoryFiles(username, repo, `${path}${file.name}/`);
+            displayRepositoryFiles(username, repo, `${path}${file.name}/`);
+            const nestedList = itemElement.querySelector('ul');
+            nestedFiles.forEach(nestedFile => {
+              const nestedItemElement = document.createElement('li');
+              nestedItemElement.innerHTML = `<li>${nestedFile.name}</li></li><a href="../edit/?file=${nestedFile.name}&repo=${repo}" target="_blank">Edit ${nestedFile.name}</a></li>`;
+              nestedList.appendChild(nestedItemElement);
+            });
+          });
+        } else {
+          itemElement.innerHTML = `<li><a href="../edit/?file=${file.name}&repo=${repo}" target="_blank">${file.name}</a>`;
+        }
+        filesContainer.appendChild(itemElement);
       });
     }
 
