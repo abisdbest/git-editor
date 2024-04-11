@@ -1,112 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<link rel="stylesheet" href="../style.css">
-<script src="//eruda.liriliri.io/eruda.js#classroom.google.com" type="text/javascript" charset="utf-8"></script>
-<script>eruda.init()</script>
-<title>GitHub Repository Files</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="../style.css">
+  <title>GitHub Repository Files</title>
 </head>
+
 <body>
   <h1>GitHub Repository Files</h1>
   <!-- Place this script before other CSS and JS includes in the HEAD. Use this code to temporarily hide the file explorer list if Javascript is enabled. When list is loaded then display it. 
 Note: Alternative is to use Modernizr to detect JS and appy "js" and "no-js" CSS selectors -->
-<script type="text/javascript">
-	document.write('<style type="text/css">.menu-tree-preloader { display:block; } .menu-tree { display:none; }</style>');
-</script>
+  <script type="text/javascript">
+    document.write('<style type="text/css">.menu-tree-preloader { display:block; } .menu-tree { display:none; }</style>');
+  </script>
 
-<h1>jQuery File Explorer 1</h1>
-<div class="menu-tree-container">
-<div class="menu-tree-preloader"><img src="../Iphone-spinner-2.gif"></div>
-<div class="menu-tree">
-<ul id="files">
-  <!-- Files will be dynamically added here -->
-</ul>
-</div>
-</div>
+  <h1>jQuery File Explorer 1</h1>
+  <div class="menu-tree-container">
+    <div class="menu-tree-preloader"><img src="http://preloaders.net/preloaders/382/Spin%20and%20pulsate.gif"></div>
+    <div class="menu-tree" id="files">
 
-<script>
-  async function fetchRepositoryFiles(username, repo) {
-    try {
-      const branchResponse = await fetch(`https://api.github.com/repos/${username}/${repo}/branches#classroom.google.com`);
-      const branchData = await branchResponse.json();
-      const branchName = branchData[0].name; // Assuming you want to work with the first branch
+    </div>
+  </div>
 
-      const filesResponse = await fetch(`https://api.github.com/repos/${username}/${repo}/git/trees/${branchName}?recursive=1#classroom.google.com`);
-      const files = await filesResponse.json();
+  <script>
+    async function fetchRepositoryFiles(username, repo) {
+      try {
+        const branchResponse = await fetch(`https://api.github.com/repos/${username}/${repo}/branches`);
+        const branchData = await branchResponse.json();
+        const branchName = branchData[0].name; // Assuming you want to work with the first branch
 
-      return files.tree;
-    } catch (error) {
-      console.error('Error fetching repository files:', error);
-      return [];
-    }
-  }
+        const filesResponse = await fetch(`https://api.github.com/repos/${username}/${repo}/git/trees/${branchName}?recursive=1`);
+        const files = await filesResponse.json();
 
-  async function displayRepositoryFiles(username, repo, path = '') {
-    const filesContainer = document.getElementById('files');
-    filesContainer.innerHTML = ''; // Clear previous data
-
-    const files = await fetchRepositoryFiles(username, repo);
-
-    const fileStructure = {};
-
-    files.forEach(file => {
-      let parts = file.path.split("/");
-      let currentDir = fileStructure;
-      parts.forEach((part, index) => {
-        if (!currentDir[part]) {
-          currentDir[part] = {};
-        }
-        if (index === parts.length - 1) {
-          currentDir[part] = file;
-        } else {
-          currentDir = currentDir[part];
-        }
-      });
-    });
-
-    function displayDir(parentEl, dir) {
-      const list = document.createElement('ul');
-      parentEl.appendChild(list);
-      for (const [name, contents] of Object.entries(dir)) {
-        const itemElement = document.createElement('li');
-        if (contents.type === 'blob') {
-          itemElement.innerHTML = `<a href="../edit/?file=${contents.path}&repo=${repo}" target="_blank">${name}</a>`;
-        } else if (Object.keys(contents).length > 1) {
-          const folderElement = document.createElement('li');
-          folderElement.innerHTML = name;
-          itemElement.appendChild(folderElement);
-          displayDir(itemElement, contents);
-        } else {
-          itemElement.innerHTML = name;
-        }
-        list.appendChild(itemElement);
+        return files.tree;
+      } catch (error) {
+        console.error('Error fetching repository files:', error);
+        return [];
       }
     }
 
-    displayDir(filesContainer, fileStructure);
-  }
+    async function displayRepositoryFiles(username, repo, path = '') {
+      const filesContainer = document.getElementById('files');
+      filesContainer.innerHTML = ''; // Clear previous data
 
-  function getParams() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const repo = urlParams.get('repo');
-    const username = urlParams.get('username');
-    return { username, repo };
-  }
+      const files = await fetchRepositoryFiles(username, repo);
 
-  function init() {
-    const { username, repo } = getParams();
-    if (username && repo) {
-      displayRepositoryFiles(username, repo);
-    } else {
-      alert("Invalid parameters. Please provide both username and repository name.");
+      const fileStructure = {};
+
+      files.forEach(file => {
+        let parts = file.path.split("/");
+        let currentDir = fileStructure;
+        parts.forEach((part, index) => {
+          if (!currentDir[part]) {
+            currentDir[part] = {};
+          }
+          if (index === parts.length - 1) {
+            currentDir[part] = file;
+          } else {
+            currentDir = currentDir[part];
+          }
+        });
+      });
+
+      function displayDir(parentEl, dir) {
+        const list = document.createElement('ul');
+        parentEl.appendChild(list);
+        for (const [name, contents] of Object.entries(dir)) {
+          const itemElement = document.createElement('li');
+          if (contents.type === 'blob') {
+            itemElement.className = contents.path.split('.').pop();
+            itemElement.innerHTML = `<a href="../edit/?file=${contents.path}&repo=${repo}" target="_blank">${name}</a>`;
+          } else if (contents.type === 'tree') {
+            const folderElement = document.createElement('li');
+            folderElement.textContent = name;
+            displayDir(folderElement, contents); // Recursively display the contents of the folder
+            itemElement.appendChild(folderElement);
+          }
+          list.appendChild(itemElement);
+        }
+      }
+
+
+      displayDir(filesContainer, fileStructure);
     }
-  }
 
-  init();
-</script>
+    function getParams() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const repo = urlParams.get('repo');
+      const username = urlParams.get('username');
+      return { username, repo };
+    }
+
+    function init() {
+      const { username, repo } = getParams();
+      if (username && repo) {
+        displayRepositoryFiles(username, repo);
+      } else {
+        alert("Invalid parameters. Please provide both username and repository name.");
+      }
+    }
+
+    init();
+
+  </script>
   <script src="../script.js"></script>
 </body>
+
 </html>

@@ -3,12 +3,6 @@
 $('.menu-tree-preloader').hide();
 $('.menu-tree').show();
 
-$(function(){
-  $("td").each(function(){
-    var $this = $(this);
-    $this.attr("data-content", $this.text());
-  });
-});
 
 // Execute this after the site is loaded.
 $(function() {
