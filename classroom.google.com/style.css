@@ -28,14 +28,14 @@
     padding: 0;
 }
 
-.menu-tree li li {
+.menu-tree li li :not(a) {
     /*background-image: url(page.png);
       background-position: 0 1px;
       background-repeat: no-repeat;*/
     padding-left: 20px;
 }
 
-.menu-tree  {
+.menu-tree a {
     /*background: transparent url(https://www.jqwidgets.com/jquery-widgets-demo/images/folder.png ) no-repeat left top; */
     background: transparent url(./directory.png) no-repeat left top;
 
