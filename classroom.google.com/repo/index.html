@@ -76,6 +76,7 @@ Note: Alternative is to use Modernizr to detect JS and appy "js" and "no-js" CSS
             itemElement.innerHTML = `<a href="../edit/?file=${contents.path}&repo=${repo}" target="_blank">${name}</a>`;
           } else if (contents.type === 'tree') {
             const folderElement = document.createElement('li');
+            folderElement.className = "folder"
             folderElement.textContent = name;
             displayDir(folderElement, contents); // Recursively display the contents of the folder
             itemElement.appendChild(folderElement);

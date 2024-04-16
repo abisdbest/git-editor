@@ -22,24 +22,31 @@
     /* Initially set this to not display unless JS is detected*/
 }
 
+.menu-tree {
+    /* display:none; Replaced with document.write in HEAD tags. */
+}
+
 .menu-tree ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.menu-tree li li :not(a) {
+.menu-tree li li {
     /*background-image: url(page.png);
       background-position: 0 1px;
       background-repeat: no-repeat;*/
     padding-left: 20px;
 }
 
+.menu-tree li.folder {
+    /*background-image: url(folder.png);*/
+}
+
 .menu-tree a {
     /*background: transparent url(https://www.jqwidgets.com/jquery-widgets-demo/images/folder.png ) no-repeat left top; */
-    background: transparent url(./directory.png) no-repeat left top;
 
-    padding: 0px 0 0px 21px;
+    padding: 0px 0 0px 0px;
     display: block;
 
     color: #000000;
@@ -47,12 +54,19 @@
     text-decoration: none;
 }
 
+.folder {
+    background: transparent url(directory.png) no-repeat left top;
+    padding: 0px 0 0px 12px;
+}
+
+.folder {
+    background: transparent url(folder_open.png) no-repeat left top;
+    padding: 0px 0 0px -12px;
+}
 
 /*** BEGIN HTML ICON ***/
-li.html {
-    background: transparent url(./html.png) no-repeat left top;
-    color: #e37933;
-    content: '\E048';
+.html {
+    background: transparent url(html.png) no-repeat left top;
 }
 
 /*** END HTML ICON ***/
@@ -60,42 +74,48 @@ li.html {
 /*** BEGIN PDF ICON ***/
 /* Add PDF icon before links that go to PDFs */
 .pdf {
-    background: transparent url(http://www.adobe.com/images/pdficon_small.png) no-repeat left top;
+    background: transparent url(pdficon_small.png) no-repeat left top;
 }
 
 /*** END PDF ICON ***/
 
 /*** BEGIN WORD ICON ***/
-.doc {
-    background: transparent url(./file.png) no-repeat left top;
+.doc,
+.docx {
+    background: transparent url(file.png) no-repeat left top;
 }
 
 /*** END WORD ICON ***/
 
 /*** BEGIN PPT ICON ***/
-.ppt {
-    background: transparent url(./ppt.png) no-repeat left top;
+.ppt,
+.pptx {
+    background: transparent url(ppt.png) no-repeat left top;
 }
 
 /*** END PPT ICON ***/
 
 /*** BEGIN XLS ICON ***/
-.xsl {
-    background: transparent url(./xls.png) no-repeat left top;
+.xls,
+.xlsx {
+    background: transparent url(xls.png) no-repeat left top;
 }
 
 /*** END XLS ICON ***/
 
 /*** BEGIN TEXT ICON ***/
 .txt {
-    background: transparent url(./txt.png) no-repeat left top;
+    background: transparent url(txt.png) no-repeat left top;
 }
 
 /*** END TEXT ICON ***/
 
 /*** BEGIN IMAGE ICON ***/
-.css {
-    background: transparent url(./css.png) no-repeat left top;
+.jpg,
+.jpeg,
+.png,
+.gif {
+    background: transparent url(picture.png) no-repeat left top;
 }
 
 /*** END IMAGE ICON ***/
