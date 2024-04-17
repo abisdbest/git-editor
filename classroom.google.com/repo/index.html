@@ -70,21 +70,19 @@ Note: Alternative is to use Modernizr to detect JS and appy "js" and "no-js" CSS
         const list = document.createElement('ul');
         parentEl.appendChild(list);
         for (const [name, contents] of Object.entries(dir)) {
-          const itemElement = document.createElement('li');
           if (contents.type === 'blob') {
+            const itemElement = document.createElement('li');
             itemElement.className = contents.path.split('.').pop();
             itemElement.innerHTML = `<a href="../edit/?file=${contents.path}&repo=${repo}" target="_blank">${name}</a>`;
+            list.appendChild(itemElement);
           } else if (contents.type === 'tree') {
             const folderElement = document.createElement('li');
-            folderElement.className = "folder"
             folderElement.textContent = name;
+            list.appendChild(folderElement);
             displayDir(folderElement, contents); // Recursively display the contents of the folder
-            itemElement.appendChild(folderElement);
           }
-          list.appendChild(itemElement);
         }
       }
-
 
       displayDir(filesContainer, fileStructure);
     }

@@ -1,8 +1,7 @@
 /*** BEGIN FILE EXPLORER CODE ***/
-//Show and Hide the image preloader so expanded content is not seen by the user.
+// Show and Hide the image preloader so expanded content is not seen by the user.
 $('.menu-tree-preloader').hide();
 $('.menu-tree').show();
-
 
 // Execute this after the site is loaded.
 $(function() {
@@ -21,10 +20,10 @@ $(function() {
         parent_li.wrapInner('<a/>').find('a').click(function() {
             // Make the anchor toggle the leaf display.
             sub_ul.slideToggle(300);
-          
-          //Add class to change folder image when clicked on
-          $(this).toggleClass('expanded');
-          
+
+            // Add class to change folder image when clicked on
+            parent_li.toggleClass('expanded'); // Changed here
+
         });
         parent_li.append(sub_ul);
     });

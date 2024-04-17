@@ -22,10 +22,6 @@
     /* Initially set this to not display unless JS is detected*/
 }
 
-.menu-tree {
-    /* display:none; Replaced with document.write in HEAD tags. */
-}
-
 .menu-tree ul {
     list-style: none;
     margin: 0;
@@ -39,10 +35,6 @@
     padding-left: 20px;
 }
 
-.menu-tree li.folder {
-    /*background-image: url(folder.png);*/
-}
-
 .menu-tree a {
     /*background: transparent url(https://www.jqwidgets.com/jquery-widgets-demo/images/folder.png ) no-repeat left top; */
 
@@ -54,14 +46,18 @@
     text-decoration: none;
 }
 
-.folder {
+ul > li {
     background: transparent url(directory.png) no-repeat left top;
     padding: 0px 0 0px 12px;
 }
 
-.folder {
+.expanded {
     background: transparent url(folder_open.png) no-repeat left top;
     padding: 0px 0 0px -12px;
+}
+
+.js {
+    background: transparent url(html.png) no-repeat left top;
 }
 
 /*** BEGIN HTML ICON ***/
