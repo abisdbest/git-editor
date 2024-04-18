@@ -3,11 +3,22 @@
 /*** BEGIN OPTIONAL styling for box that contains the list ***/
 .menu-tree-container {
     width: 250px;
-    height: 200px;
+    height: calc(100vh - 150px);
     overflow-y: scroll;
     border: 1px solid black;
-    padding: 10px 10px;
-    position: relative;
+    padding: 0px 0px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+#editorframe {
+    position: fixed;
+    height: calc(100vh - 150px);
+    right: 0;
+    border: 1px solid black;
+    width: calc(100% - 250px);
+    bottom: 0;
 }
 
 /*** END OPTIONAL styling for box that contains the list ***/
@@ -47,8 +58,8 @@
 }
 
 ul > li {
-    background: transparent url(directory.png) no-repeat left top;
-    padding: 0px 0 0px 12px;
+    background: transparent url(folder.png) no-repeat left top;
+    padding: 0px 0 0px 20px;
 }
 
 .expanded {
@@ -57,61 +68,26 @@ ul > li {
 }
 
 .js {
-    background: transparent url(html.png) no-repeat left top;
+    background: transparent url(js.png) no-repeat left top;
 }
 
-/*** BEGIN HTML ICON ***/
 .html {
     background: transparent url(html.png) no-repeat left top;
 }
 
-/*** END HTML ICON ***/
-
-/*** BEGIN PDF ICON ***/
-/* Add PDF icon before links that go to PDFs */
-.pdf {
-    background: transparent url(pdficon_small.png) no-repeat left top;
+.css {
+    background: transparent url(css.png) no-repeat left top;
 }
 
-/*** END PDF ICON ***/
-
-/*** BEGIN WORD ICON ***/
-.doc,
-.docx {
-    background: transparent url(file.png) no-repeat left top;
-}
-
-/*** END WORD ICON ***/
-
-/*** BEGIN PPT ICON ***/
-.ppt,
-.pptx {
-    background: transparent url(ppt.png) no-repeat left top;
-}
-
-/*** END PPT ICON ***/
-
-/*** BEGIN XLS ICON ***/
-.xls,
-.xlsx {
-    background: transparent url(xls.png) no-repeat left top;
-}
-
-/*** END XLS ICON ***/
-
-/*** BEGIN TEXT ICON ***/
 .txt {
     background: transparent url(txt.png) no-repeat left top;
 }
 
-/*** END TEXT ICON ***/
-
-/*** BEGIN IMAGE ICON ***/
 .jpg,
 .jpeg,
 .png,
 .gif {
-    background: transparent url(picture.png) no-repeat left top;
+    background: transparent url(img.png) no-repeat left top;
 }
 
 /*** END IMAGE ICON ***/

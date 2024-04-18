@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="//cdn.jsdelivr.net/npm/eruda#classroom.google.com"></script>
     <script>eruda.init();</script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-css@3.9.0/#classroom.google.com">
+    <script type="module">
+        import monacoCss from 'https://cdn.jsdelivr.net/npm/monaco-css@3.9.0/+esm'
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-css@3.9.0/+esm">
     <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.31.1/min/vs/loader.js#classroom.google.com"></script>
     <script src="emmet.js#classroom.google.com"></script>
     <style>
@@ -38,7 +41,7 @@
     <button onclick="editFile()">commit changes</button>
 
     <script>
-        let file, repo, currentContent, startValue; // Declare file and repo in the global scope
+        let currentContent, startValue; // Declare file and repo in the global scope
 
         async function get_old_value() {
             const response = await fetch("https://raw.githubusercontent.com/" + username + "/" + repo + "/master/" + file + "#classroom.google.com", {
@@ -48,29 +51,17 @@
             initMonacoEditor(); // Call initMonacoEditor() after startValue is retrieved
         }
 
-        function getParams() {
-            const urlParams = new URLSearchParams(window.location.search);
-            repo = urlParams.get('repo')
-            file = urlParams.get('file')
-            return { file, repo };
-        }
-
-        async function start_stuff() {
-            const { file, repo } = getParams();
-            await get_old_value();
-            if (file && repo) {
-                // hi
-            } else {
-                alert("Invalid parameters. Please provide both file and repository name.");
-            }
-        }
-
         // Check if username and token are already stored in local storage
         let username = localStorage.getItem('github_username');
         let token = localStorage.getItem('github_token');
+        let repo = localStorage.getItem('current_repo');
+        let file = localStorage.getItem('current_file');
+        const language = file.split('.').pop()
+        alert(language)
+        alert(username + token + repo + file)
         
         // If not stored, prompt for username and API token
-        if (!username || !token) {
+        if (!username || !token || !repo || !file) {
             username = prompt("Enter your GitHub username:");
             token = prompt("Enter your GitHub API token:");
             
@@ -140,9 +131,6 @@
         }
 
 
-
-        start_stuff()
-
         let isEditorReady = false;
         let editor;
         
@@ -156,7 +144,7 @@
                 emmetMonaco.emmetHTML(monaco);
                 editor = monaco.editor.create(document.getElementById('editor'), {
                     value: startValue,
-                    language: 'html',
+                    language: language,
                     theme: 'vs-dark',
                     minimap: {
                         enabled: false
@@ -166,6 +154,8 @@
                 isEditorReady = true;
             });
         }
+
+        get_old_value()
     </script>
 </body>
 </html>

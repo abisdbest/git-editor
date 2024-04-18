@@ -20,13 +20,27 @@ Note: Alternative is to use Modernizr to detect JS and appy "js" and "no-js" CSS
 
   <h1>jQuery File Explorer 1</h1>
   <div class="menu-tree-container">
-    <div class="menu-tree-preloader"><img src="http://preloaders.net/preloaders/382/Spin%20and%20pulsate.gif"></div>
+    <div class="menu-tree-preloader"><img src=""></div>
     <div class="menu-tree" id="files">
 
     </div>
   </div>
+  <iframe src="" frameborder="0" id="editorframe"></iframe>
 
   <script>
+    let username = localStorage.getItem('github_username');
+    let token = localStorage.getItem('github_token');
+    
+    // If not stored, prompt for username and API token
+    if (!username || !token) {
+        username = prompt("Enter your GitHub username:");
+        token = prompt("Enter your GitHub API token:");
+        
+        // Save username and token in local storage
+        localStorage.setItem('github_username', username);
+        localStorage.setItem('github_token', token);
+    }
+
     async function fetchRepositoryFiles(username, repo) {
       try {
         const branchResponse = await fetch(`https://api.github.com/repos/${username}/${repo}/branches`);
@@ -73,7 +87,7 @@ Note: Alternative is to use Modernizr to detect JS and appy "js" and "no-js" CSS
           if (contents.type === 'blob') {
             const itemElement = document.createElement('li');
             itemElement.className = contents.path.split('.').pop();
-            itemElement.innerHTML = `<a href="../edit/?file=${contents.path}&repo=${repo}" target="_blank">${name}</a>`;
+            itemElement.innerHTML = `<a onclick="openfile('${contents.path}');">${name}</a>`;
             list.appendChild(itemElement);
           } else if (contents.type === 'tree') {
             const folderElement = document.createElement('li');
@@ -104,6 +118,14 @@ Note: Alternative is to use Modernizr to detect JS and appy "js" and "no-js" CSS
     }
 
     init();
+
+    function openfile(filepath) {
+      const urlParams = new URLSearchParams(window.location.search);
+      localStorage.setItem('current_file', filepath);
+      alert(filepath)
+      localStorage.setItem('current_repo', urlParams.get('repo'));
+      document.getElementById("editorframe").src = "../edit";
+    }
 
   </script>
   <script src="../script.js"></script>
