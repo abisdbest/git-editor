@@ -1,20 +1,30 @@
 /*** BEGIN FILE EXPLORER CODE ***/
 
+body {
+    background-color: #282a32;
+    color: white;
+    font-family: Consolas, monaco, monospace;
+    user-select: none;
+}
+
 /*** BEGIN OPTIONAL styling for box that contains the list ***/
 .menu-tree-container {
+    font-weight: 200px;
+    font-size: 14px;
     width: 250px;
-    height: calc(100vh - 150px);
-    overflow-y: scroll;
+    height: calc(100vh - 70px);
+    overflow-y: auto;
     border: 1px solid black;
     padding: 0px 0px;
     position: fixed;
     bottom: 0;
     left: 0;
+    background-color: #242328;
 }
 
 #editorframe {
     position: fixed;
-    height: calc(100vh - 150px);
+    height: calc(100vh - 70px);
     right: 0;
     border: 1px solid black;
     width: calc(100% - 250px);
@@ -31,6 +41,10 @@
     margin-left: -16px;
     display: none;
     /* Initially set this to not display unless JS is detected*/
+}
+
+.menu-tree * {
+    margin: 5px;
 }
 
 .menu-tree ul {
@@ -52,7 +66,7 @@
     padding: 0px 0 0px 0px;
     display: block;
 
-    color: #000000;
+    color: white;
     cursor: pointer;
     text-decoration: none;
 }
@@ -93,8 +107,7 @@ ul > li {
 /*** END IMAGE ICON ***/
 
 .menu-tree a:hover {
-    text-decoration: underline;
-    background-color: #ccc;
+    background-color: #313036;
 }
 
 /*** END FILE EXPLORER CODE ***/

@@ -4,7 +4,7 @@ $('.menu-tree-preloader').hide();
 $('.menu-tree').show();
 
 // Execute this after the site is loaded.
-$(function() {
+function run_jquery() {
     // Find list items representing folders and
     // style them accordingly.  Also, turn them
     // into links that can expand/collapse the
@@ -30,6 +30,6 @@ $(function() {
 
     // Hide all lists except the outermost.
     $('.menu-tree ul ul').hide();
-});
+};
 
 /*** END FILE EXPLORER CODE ***/

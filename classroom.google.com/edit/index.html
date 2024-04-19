@@ -56,9 +56,11 @@
         let token = localStorage.getItem('github_token');
         let repo = localStorage.getItem('current_repo');
         let file = localStorage.getItem('current_file');
-        const language = file.split('.').pop()
-        alert(language)
-        alert(username + token + repo + file)
+        let language = file.split('.').pop()
+
+        if (language == "js") {
+            language = "javascript";
+        }
         
         // If not stored, prompt for username and API token
         if (!username || !token || !repo || !file) {

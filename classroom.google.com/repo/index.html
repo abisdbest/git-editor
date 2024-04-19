@@ -4,21 +4,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" crossorigin="anonymous"
-    referrerpolicy="no-referrer"></script>
   <link rel="stylesheet" href="../style.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" crossorigin="anonymous"
+  referrerpolicy="no-referrer"></script>
   <title>GitHub Repository Files</title>
 </head>
 
 <body>
-  <h1>GitHub Repository Files</h1>
+  <h1>Edit your repos</h1>
   <!-- Place this script before other CSS and JS includes in the HEAD. Use this code to temporarily hide the file explorer list if Javascript is enabled. When list is loaded then display it. 
 Note: Alternative is to use Modernizr to detect JS and appy "js" and "no-js" CSS selectors -->
   <script type="text/javascript">
     document.write('<style type="text/css">.menu-tree-preloader { display:block; } .menu-tree { display:none; }</style>');
   </script>
 
-  <h1>jQuery File Explorer 1</h1>
   <div class="menu-tree-container">
     <div class="menu-tree-preloader"><img src=""></div>
     <div class="menu-tree" id="files">
@@ -99,6 +98,7 @@ Note: Alternative is to use Modernizr to detect JS and appy "js" and "no-js" CSS
       }
 
       displayDir(filesContainer, fileStructure);
+      run_jquery()
     }
 
     function getParams() {
@@ -122,13 +122,12 @@ Note: Alternative is to use Modernizr to detect JS and appy "js" and "no-js" CSS
     function openfile(filepath) {
       const urlParams = new URLSearchParams(window.location.search);
       localStorage.setItem('current_file', filepath);
-      alert(filepath)
       localStorage.setItem('current_repo', urlParams.get('repo'));
       document.getElementById("editorframe").src = "../edit";
     }
 
   </script>
-  <script src="../script.js"></script>
+  <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="../script.js"></script>
 </body>
 
 </html>
