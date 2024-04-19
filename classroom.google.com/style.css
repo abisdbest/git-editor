@@ -97,6 +97,10 @@ ul > li {
     background: transparent url(txt.png) no-repeat left top;
 }
 
+.md {
+    background: transparent url(md.png) no-repeat left top;
+}
+
 .jpg,
 .jpeg,
 .png,
