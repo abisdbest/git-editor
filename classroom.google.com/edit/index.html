@@ -143,7 +143,7 @@
                 }
             });
             require(['vs/editor/editor.main'], function () {
-                emmetMonaco.emmetHTML(monaco);
+                // emmetMonaco.emmetHTML(monaco);
                 editor = monaco.editor.create(document.getElementById('editor'), {
                     value: startValue,
                     language: language,
@@ -154,8 +154,13 @@
                 });
 
                 isEditorReady = true;
+                window.editor = editor
+                editor.getModel().onDidChangeContent((event) => {
+                  localStorage.setItem(`saved ${username}/${repo}/${file}`, editor.getValue())
+                });
             });
         }
+
 
         get_old_value()
     </script>
