@@ -155,7 +155,6 @@
                 });
 
                 isEditorReady = true;
-                window.editor = editor
                 editor.getModel().onDidChangeContent((event) => {
                   localStorage.setItem(`saved ${username}/${repo}/${file}`, editor.getValue())
                 });
