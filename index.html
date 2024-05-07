@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitHub Repositories</title>
+</head>
+<body>
+  <h1>GitHub Repositories</h1>
+  <div id="repositories"></div>
+
+  <script>
+    async function fetchRepositories(username) {
+      try {
+        const response = await fetch(`https://api.github.com/users/${username}/repos#classroom.google.com`);
+        const repositories = await response.json();
+        return repositories;
+      } catch (error) {
+        console.error('Error fetching repositories:', error);
+        return [];
+      }
+    }
+
+    async function displayRepositories(username) {
+      const repositoriesContainer = document.getElementById('repositories');
+      repositoriesContainer.innerHTML = ''; // Clear previous data
+
+      const repositories = await fetchRepositories(username);
+
+      repositories.forEach(repo => {
+        const repoElement = document.createElement('div');
+        repoElement.innerHTML = `
+          <h2>${repo.name}</h2>
+          <p>Description: ${repo.description || 'No description available'}</p>
+          <p>Language: ${repo.language || 'Not specified'}</p>
+          <p>URL: <a href="repo/?username=${username}&repo=${repo.name}" target="_blank">edit ${repo.name}</a></p>
+          <hr>
+        `;
+        repositoriesContainer.appendChild(repoElement);
+      });
+    }
+
+    function getUsername() {
+      let username = prompt("Enter your GitHub username:");
+      if (username) {
+        localStorage.setItem('githubUsername', username);
+        return username;
+      } else {
+        alert("Invalid username");
+        return null;
+      }
+    }
+
+    function getStoredUsername() {
+      return localStorage.getItem('githubUsername');
+    }
+
+    function init() {
+      let username = getStoredUsername();
+      if (!username) {
+        username = getUsername();
+      }
+      if (username) {
+        displayRepositories(username);
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>
