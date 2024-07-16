@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="//cdn.jsdelivr.net/npm/eruda#classroom.google.com"></script>
     <script>eruda.init();</script>
+    
     <script type="module">
         import monacoCss from 'https://cdn.jsdelivr.net/npm/monaco-css@3.9.0/+esm'
     </script>
+
      <!-- ignore this comment it is for testing purposes -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-css@3.9.0/+esm">
-    <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.31.1/min/vs/loader.js#classroom.google.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.49.0/min/vs/loader.js"></script>
     <script src="emmet.js#classroom.google.com"></script>
     <style>
         #editor {
@@ -140,11 +142,11 @@
         function initMonacoEditor() {
             require.config({
                 paths: {
-                    'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs'
+                    'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.49.0/min/vs'
                 }
             });
             require(['vs/editor/editor.main'], function () {
-                // emmetMonaco.emmetHTML(monaco);
+                emmetMonaco.emmetHTML(monaco);
                 editor = monaco.editor.create(document.getElementById('editor'), {
                     value: startValue,
                     language: language,
