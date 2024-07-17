@@ -43,11 +43,11 @@ Note: Alternative is to use Modernizr to detect JS and appy "js" and "no-js" CSS
 
     async function fetchRepositoryFiles(username, repo) {
       try {
-        const branchResponse = await fetch(`https://api.github.com/repos/${username}/${repo}/branches#classroom.google.com`);
+        const branchResponse = await fetch(`https://api.github.com/repos/${username}/${repo}/branches#drive.google.com`);
         const branchData = await branchResponse.json();
         const branchName = branchData[0].name; // Assuming you want to work with the first branch
 
-        const filesResponse = await fetch(`https://api.github.com/repos/${username}/${repo}/git/trees/${branchName}?recursive=1#classroom.google.com`);
+        const filesResponse = await fetch(`https://api.github.com/repos/${username}/${repo}/git/trees/${branchName}?recursive=1#drive.google.com`);
         const files = await filesResponse.json();
 
         return files.tree;
